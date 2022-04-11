@@ -5797,11 +5797,9 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.debug = void 0;
 const core = __importStar(__webpack_require__(186));
 function debug(title, content) {
-    if (core.isDebug()) {
-        core.info(`::group::${title}`);
-        core.debug(JSON.stringify(content, null, 3));
-        core.info('::endgroup::');
-    }
+    core.info(`::group::${title}`);
+    core.info(JSON.stringify(content, null, 3));
+    core.info('::endgroup::');
 }
 exports.debug = debug;
 
