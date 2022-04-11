@@ -6,6 +6,7 @@
 // ----------------------------------------------------------------------------
 
 import * as core from '@actions/core'
+
 import * as github from '@actions/github'
 import { formatDuration, getArgs, isTimedOut, sleep } from './utils';
 import { WorkflowHandler, WorkflowRunConclusion, WorkflowRunResult, WorkflowRunStatus } from './workflow-handler';
@@ -36,7 +37,7 @@ async function waitForCompletionOrTimeout(workflowHandler: WorkflowHandler, chec
     try {
       result = await workflowHandler.getWorkflowRunStatus();
       status = result.status;
-      core.debug(`Worflow is running for ${formatDuration(Date.now() - start)}. Current status=${status}`)
+      core.info(`Worflow is running for ${formatDuration(Date.now() - start)}. Current status=${status}`)
     } catch(e) {
       core.warning(`Failed to get workflow status: ${e.message}`);
     }

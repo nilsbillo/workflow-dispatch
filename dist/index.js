@@ -5878,7 +5878,7 @@ function waitForCompletionOrTimeout(workflowHandler, checkStatusInterval, waitFo
             try {
                 result = yield workflowHandler.getWorkflowRunStatus();
                 status = result.status;
-                core.debug(`Worflow is running for ${utils_1.formatDuration(Date.now() - start)}. Current status=${status}`);
+                core.info(`Worflow is running for ${utils_1.formatDuration(Date.now() - start)}. Current status=${status}`);
             }
             catch (e) {
                 core.warning(`Failed to get workflow status: ${e.message}`);
